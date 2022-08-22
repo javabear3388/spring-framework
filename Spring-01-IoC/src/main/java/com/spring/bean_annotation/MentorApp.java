@@ -12,11 +12,17 @@ public class MentorApp {
         FullTimeMentor ft = container.getBean(FullTimeMentor.class);
         ft.createAccount();
 
-        String s1 = container.getBean(String.class);
-        System.out.println(s1);
+//        String s1 = container.getBean(String.class);
+//        System.out.println(s1);
+//
+//        Integer i1 = container.getBean(Integer.class);
+//        System.out.println(i1);
 
-        Integer i1 = container.getBean(Integer.class);
-        System.out.println(i1);
+        PartTimeMentor pt2 = container.getBean("p2",PartTimeMentor.class); //p2
+        pt2.createAccount();
+
+        PartTimeMentor pt1 = container.getBean(PartTimeMentor.class); //p1 -> primary
+        pt1.createAccount();
 
     }
 }
