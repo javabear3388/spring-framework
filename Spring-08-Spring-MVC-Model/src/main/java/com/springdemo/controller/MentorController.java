@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequestMapping("/mentorinfo") //Class level controller => /mentorinfo/xxx
 public class MentorController {
 
     @RequestMapping("/mentors")
