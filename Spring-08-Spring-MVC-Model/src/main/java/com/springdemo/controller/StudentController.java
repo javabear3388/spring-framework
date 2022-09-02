@@ -1,5 +1,7 @@
 package com.springdemo.controller;
 
+import com.springdemo.enums.Gender;
+import com.springdemo.model.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +32,9 @@ public class StudentController {
         numbers.add(7);
         numbers.add(10);
         model.addAttribute("numbers",numbers);
+
+        Student student1 = new Student(1, "Mike", "Smith");
+        model.addAttribute("student1", student1);
 
         return "/student/welcome"; //no need to put .html cause it's thymleaf template
     }
