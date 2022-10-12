@@ -8,7 +8,7 @@ public class Student {
 
     @Id
     private Long id;
-    private String firstName; //at db -> first_name
+    private String firstName; //at db column name -> first_name
     private String lastName;
     private String email;
 
