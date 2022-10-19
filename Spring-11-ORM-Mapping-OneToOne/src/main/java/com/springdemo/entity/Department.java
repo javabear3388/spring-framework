@@ -17,6 +17,10 @@ public class Department extends BaseEntity {
     private String department;
     private String division;
 
+    @OneToOne(mappedBy = "department") //same name as the employee class
+                            // -> will not create column here -> owned by employee table
+    private Employee employee;
+
     public Department(String department, String division) {
         this.department = department;
         this.division = division;

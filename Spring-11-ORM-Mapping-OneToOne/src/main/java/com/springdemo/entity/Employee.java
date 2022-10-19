@@ -25,6 +25,10 @@ public class Employee extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
+    @OneToOne //one employee can only have ONE dept
+    @JoinColumn(name = "department_id") //change the name of the join column (foreign key)
+    private Department department;
+
     public Employee(String firstName, String lastName, String email, LocalDate hireDate, int salary, Gender gender) {
         this.firstName = firstName;
         this.lastName = lastName;
