@@ -25,7 +25,8 @@ public class Employee extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @OneToOne //one employee can only have ONE dept
+    //one employee can only have ONE dept
+    @OneToOne (cascade = CascadeType.ALL)
     @JoinColumn(name = "department_id") //change the name of the join column (foreign key)
     private Department department;
 
