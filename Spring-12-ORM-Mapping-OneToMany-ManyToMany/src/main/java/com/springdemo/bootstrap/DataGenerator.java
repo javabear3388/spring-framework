@@ -1,9 +1,11 @@
 package com.springdemo.bootstrap;
 
 import com.springdemo.enums.Status;
+import com.springdemo.model.Customer;
 import com.springdemo.model.Merchant;
 import com.springdemo.model.Payment;
 import com.springdemo.model.PaymentDetail;
+import com.springdemo.repository.CustomerRepository;
 import com.springdemo.repository.MerchantRepository;
 import com.springdemo.repository.PaymentRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -17,10 +19,12 @@ public class DataGenerator implements CommandLineRunner {
 
     private final PaymentRepository paymentRepository;
     private final MerchantRepository merchantRepository;
+    private final CustomerRepository customerRepository;
 
-    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository) {
+    public DataGenerator(PaymentRepository paymentRepository, MerchantRepository merchantRepository, CustomerRepository customerRepository) {
         this.paymentRepository = paymentRepository;
         this.merchantRepository = merchantRepository;
+        this.customerRepository = customerRepository;
     }
 
     @Override
@@ -41,6 +45,13 @@ public class DataGenerator implements CommandLineRunner {
 
         payment1.setMerchant(merchant1);
         payment2.setMerchant(merchant1);
+
+        Customer customer1 = new Customer("msmith","Mike","Smith","msmith@cydeo.com","VA");
+
+        payment1.setCustomer(customer1);
+        payment2.setCustomer(customer1);
+
+        customerRepository.save(customer1);//customer needs to persist in the DB First
 
         merchantRepository.save(merchant1);
 
