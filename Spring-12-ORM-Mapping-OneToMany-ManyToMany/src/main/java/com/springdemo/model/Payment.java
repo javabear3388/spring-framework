@@ -29,9 +29,9 @@ public class Payment {
     @OneToOne(cascade = CascadeType.ALL)
     private PaymentDetail paymentDetail;
 
-//    @ManyToOne
-//    private Merchant merchant;
-//
+    @ManyToOne
+    private Merchant merchant;
+
 //    @ManyToOne
 //    private Customer customer;
 
