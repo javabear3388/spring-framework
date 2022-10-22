@@ -29,7 +29,7 @@ public class Payment {
     @OneToOne(cascade = CascadeType.ALL)
     private PaymentDetail paymentDetail;
 
-    @ManyToOne
+    @ManyToOne // OneToMany -> don't use cascade
     private Merchant merchant;
 
 //    @ManyToOne
