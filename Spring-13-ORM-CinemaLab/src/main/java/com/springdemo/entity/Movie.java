@@ -18,7 +18,7 @@ public class Movie extends BaseEntity{
     private String name;
     @Column(columnDefinition = "Date")
     private LocalDate releaseDate;
-    private Integer durations;
+    private Integer duration;
     @Column(columnDefinition = "text") //no limits on the characters
     private String summary;
     @Enumerated(EnumType.STRING)
@@ -28,7 +28,7 @@ public class Movie extends BaseEntity{
     private BigDecimal price;
 
     @ManyToMany
-    @JoinTable(name = "movie_fenre_rel",
+    @JoinTable(name = "movie_genre_rel",
     joinColumns = @JoinColumn(name="movie_id"),
             inverseJoinColumns = @JoinColumn(name="genre_id"))
     private List<Genre> genreList;
