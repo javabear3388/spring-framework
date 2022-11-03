@@ -1,5 +1,6 @@
 package com.springdemo.bootstrap;
 
+import com.springdemo.entity.Employee;
 import com.springdemo.repository.DepartmentRepository;
 import com.springdemo.repository.EmployeeRepository;
 import com.springdemo.repository.RegionRepository;
@@ -11,6 +12,7 @@ public class DataGenerator implements CommandLineRunner {
     private final RegionRepository regionRepository;
     private final DepartmentRepository departmentRepository;
     private final EmployeeRepository employeeRepository;
+
 
     public DataGenerator(RegionRepository regionRepository, DepartmentRepository departmentRepository, EmployeeRepository employeeRepository) {
         this.regionRepository = regionRepository;
@@ -37,5 +39,11 @@ public class DataGenerator implements CommandLineRunner {
 
         System.out.println("------------------Employee Starts-------------------------");
         System.out.println(employeeRepository.findByEmailIsNull());
+
+        System.out.println("==============Using query to build methods==============");
+        System.out.println("getEmployeeDetail:" + employeeRepository.getEmployeeDetail());
+        System.out.println("getEmployeeSalary:" + employeeRepository.getEmployeeSalary());
+
+
     }
 }
